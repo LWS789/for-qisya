@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For Qisya 💗</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #1d1d2f, #3a295b);
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    #wrapper {
+      max-width: 600px;
+      text-align: center;
+      padding: 20px;
+      animation: fadeIn 3s ease forwards;
+      opacity: 0;
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    #message {
+      font-size: 1.3em;
+      white-space: pre-line;
+      margin-top: 20px;
+    }
+    #secret {
+      margin-top: 30px;
+      color: #ffb3e6;
+      cursor: pointer;
+      display: none;
+      animation: glow 1.5s infinite alternate;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 8px #ff69b4; }
+      to { text-shadow: 0 0 20px #ff1493; }
+    }
+    #hidden {
+      display: none;
+      margin-top: 20px;
+      font-style: italic;
+      color: #ffd6ff;
+    }
+  </style>
+</head>
+<body>
+  <div id="wrapper">
+    <h1>Hi Qisya 🌸</h1>
+    <div id="message"></div>
+    <div id="secret" onclick="reveal()">Click me 💌</div>
+    <div id="hidden">You're not just beautiful. You're the reason someone believes in soft things again. – from Safwan 🖤</div>
+  </div>
+
+  <script>
+    const text = `
+Even the stars look dim
+when you're near.
+
+You carry light in the way
+you smile through storms,
+and softness in the way
+you speak to the broken.
+
+I don’t need the whole world—
+just the one where you exist.`;
+
+    let i = 0;
+    const speed = 40;
+    function typeWriter() {
+      if (i < text.length) {
+        document.getElementById("message").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      } else {
+        document.getElementById("secret").style.display = "block";
+      }
+    }
+
+    function reveal() {
+      document.getElementById("hidden").style.display = "block";
+    }
+
+    window.onload = typeWriter;
+  </script>
+</body>
+</html>
